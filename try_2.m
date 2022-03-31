@@ -17,6 +17,7 @@ x = 0; y = 0; z = 14;
 
 % отрисовка
 figure;
+
 h_4 = slice(y_3, x_3, z_3, V, x, y, z);
 
 hold on;
