@@ -8,6 +8,9 @@ y_2 = attractor2.AmplitudePlot1(1:10000);
 z_1 = attractor1.AmplitudePlot2(1:10000);
 z_2 = attractor2.AmplitudePlot2(1:10000);
 V = matrix1();
+x_1 = -15:0.1:15;
+y_1 = -14:0.1:14;
+z_1 = -2:0.1;
 
 %M = meshgrid([-14:0.1:13.9], [-15:0.1:14.9], [-2:0.1:38]);
 
@@ -25,7 +28,7 @@ figure;
 %y_scale = (-14:0.1:14);
 %z_scale = (-2:0.1:38);
 %h_3 = slice(V, x, y, z);
-h_4 = slice(V, x, y, z);
+h_4 = slice(x_1, y_1, z_1, V, x, y, z);
 %hold off;
 
 
