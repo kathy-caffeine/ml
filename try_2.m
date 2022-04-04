@@ -15,14 +15,28 @@ z_3 = -2:0.1:38;
 
 x = 0; y = 0; z = 14;
 
+color_0 = [0 1 0];
+color_1 = [1 0 0];
+
 % отрисовка
 figure;
 
+%camlight('right');
+%camlight('left');
+
+map = [
+    color_0
+    color_1
+    color_0
+    color_1
+    ];
+
+colormap(map);
 h_4 = slice(y_3, x_3, z_3, V, x, y, z);
 
 hold on;
-h_1 = plot3(y_1, x_1, z_1);
-h_2 = plot3(y_2, x_2, z_2);
+h_1 = plot3(y_1, x_1, z_1, 'Color', color_1);
+h_2 = plot3(y_2, x_2, z_2, 'Color', color_0);
 hold off;
 
 % скрипт для создания матрицы
