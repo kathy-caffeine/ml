@@ -1,3 +1,7 @@
+h = draw_all(0,0,10, [0 1 0], [1 0 0]);
+
+% возвращает матрицу из слайса и двух 3д графиков
+function [h, s] = draw_all(x,y,z, color_0, color_1)
 attractor1 = readtable("attractor_1.xlsx");
 attractor2 = readtable("attractor_2.xlsx");
 
@@ -13,17 +17,8 @@ x_3 = -15:0.1:14.9;
 y_3 = -14:0.1:13.9;
 z_3 = -2:0.1:38;
 
-x = 0; y = 0; z = 14;
-
-color_0 = [0 1 0];
-color_1 = [1 0 0];
-
 % отрисовка
 figure;
-
-%camlight('right');
-%camlight('left');
-
 map = [
     color_0
     color_1
@@ -31,13 +26,35 @@ map = [
     color_1
     ];
 
+h = matrix;
+
 colormap(map);
-h_4 = slice(y_3, x_3, z_3, V, x, y, z);
+s = slice(y_3, x_3, z_3, V, x, y, z);
+set(s, 'EdgeColor','none');
 
 hold on;
-h_1 = plot3(y_1, x_1, z_1, 'Color', color_1);
-h_2 = plot3(y_2, x_2, z_2, 'Color', color_0);
+h(2) = plot3(y_1, x_1, z_1, 'Color', color_1);
+h(3) = plot3(y_2, x_2, z_2, 'Color', color_0);
 hold off;
+end
+
+function [h] = draw_slice(x,y,z, color_0, color_1)
+V = matrix();
+x_3 = -15:0.1:14.9;
+y_3 = -14:0.1:13.9;
+z_3 = -2:0.1:38;
+
+% отрисовка
+figure;
+map = [
+    color_0
+    color_1
+    color_0
+    color_1
+    ];
+colormap(map);
+h = slice(y_3, x_3, z_3, V, x, y, z);
+end
 
 % скрипт для создания матрицы
 function [V] = matrix()
