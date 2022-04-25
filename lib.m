@@ -1,7 +1,7 @@
-h = draw_all(0,0,10, [0 1 0], [1 0 0]);
+h = draw_all(0,-12 ,10, [0.9290 0.6940 0.1250], [0 0.4470 0.7410], 'red', [0.4940 0.1840 0.5560]);
 
 % возвращает матрицу из слайса и двух 3д графиков
-function [h, s] = draw_all(x,y,z, color_0, color_1)
+function [h, s] = draw_all(x,y,z, color_0, color_1, color_2, color_3)
 attractor1 = readtable("attractor_1.xlsx");
 attractor2 = readtable("attractor_2.xlsx");
 
@@ -33,8 +33,8 @@ s = slice(y_3, x_3, z_3, V, x, y, z);
 set(s, 'EdgeColor','none');
 
 hold on;
-h(2) = plot3(y_1, x_1, z_1, 'Color', color_1);
-h(3) = plot3(y_2, x_2, z_2, 'Color', color_0);
+h(2) = plot3(y_1, x_1, z_1, 'Color', color_3);
+h(3) = plot3(y_2, x_2, z_2, 'Color', color_2);
 hold off;
 end
 
